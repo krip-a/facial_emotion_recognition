@@ -1,0 +1,15 @@
+# Ignore python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environment folders
+.venv/
+.env/
+.vscode/
+
+#Ignore data
+data/
+
+# Ignore saved ML models
+saved_models/
