@@ -7,7 +7,7 @@ def load_images(data_path):             #data_path from main()
     labels = []                        #emotions
 
     for emotion in os.listdir(data_path):                   #get names of all emotion folders (angry, sad, etc.) 
-        print(f"loading {emotion}...")
+        #print(f"loading {emotion}...")
 
         emotion_path = os.path.join(data_path, emotion)     #join data/train/ + happy/ for each emotion
         
@@ -17,6 +17,7 @@ def load_images(data_path):             #data_path from main()
 
                 try:
                     image = Image.open(image_path).convert("L")     #open the image as grayscale
+                    image = image.resizze((48,48))
                 except Exception as e:
                     continue
 
@@ -50,7 +51,7 @@ Workflow
 #test
 if __name__ == "__main__":
     images, labels = load_images("data/train")
-
     print("Nummber of images: ", len(images))
     print("First label:", labels[0])
     print("First image size:", images[0].size)
+    
