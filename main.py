@@ -1,9 +1,15 @@
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
 from src.load_data import load_images
 from src.preprocess import preprocess
 from models.cnn import create_cnn
 from src.train import train_model
 from src.save_model import save_model
 from src.evaluate import evaluate_model
+
+import numpy as np
 
 #training data
 train_images1, train_labels1 = load_images("data/train")
@@ -30,3 +36,4 @@ evaluate_model(
     test_images,
     test_labels
 )
+

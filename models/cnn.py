@@ -1,15 +1,15 @@
 #define the model
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import (
-    Conv2D, 
-    MaxPooling2D, 
-    Flatten, 
-    Dense
-)
+from keras.models import Sequential
+from keras.layers import Input
+from keras.layers import (Conv2D, MaxPooling2D, Flatten, Dense, Dropout)
 
 def create_cnn():
     model = Sequential()    #Run the layers one after another
+
+    model.add(
+        Input(shape = (48, 48, 1))
+    )
 
     #First Convolution layer
     #Convolution: learn local visual features (edges, curves, corners, eyess, etc.)
@@ -20,7 +20,7 @@ def create_cnn():
             filters = 32,               #32 feature detectors
             kernel_size = (3,3),        #slide tiny 3x3 windows all over the img
             activation = "relu",        #rectified linaer unit; introduces non-linearity
-            input_shape = (48, 48, 1)
+            #input_shape = (48, 48, 1)
         )
     )
 
@@ -58,6 +58,12 @@ def create_cnn():
             128,
             activation = "relu"
         )
+    )
+
+    #Dropout
+    #Randomly turns off neurons during training so no memorization
+    model.add(
+        Dropout(0.5)
     )
 
     #Output layer

@@ -4,7 +4,7 @@ For prediction on new images
 
 import numpy as np
 from PIL import Image
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 
 
 emotion_map = {

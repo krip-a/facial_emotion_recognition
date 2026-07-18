@@ -6,13 +6,14 @@ def load_images(data_path):             #data_path from main()
     images = []                        #pixels
     labels = []                        #emotions
 
-    for emotion in os.listdir(data_path):                   #get names of all emotion folders (angry, sad, etc.) 
+    for emotion in sorted(os.listdir(data_path)):                   #get names of all emotion folders (angry, sad, etc.) 
         #print(f"loading {emotion}...")
 
         emotion_path = os.path.join(data_path, emotion)     #join data/train/ + happy/ for each emotion
         
         if os.path.isdir(emotion_path):
-            for image_name in os.listdir(emotion_path):
+
+            for image_name in sorted(os.listdir(emotion_path)):
                 image_path = os.path.join(emotion_path, image_name)
 
                 try:
