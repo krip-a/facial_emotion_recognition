@@ -17,8 +17,9 @@ def load_images(data_path):             #data_path from main()
 
                 try:
                     image = Image.open(image_path).convert("L")     #open the image as grayscale
-                    image = image.resizze((48,48))
+                    image = image.resize((48,48))
                 except Exception as e:
+                    print(image_path, e)
                     continue
 
                 images.append(image)
