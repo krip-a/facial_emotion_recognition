@@ -33,91 +33,43 @@ and place it in the data/ directory
 
 Through iterative experimentation, the model's test accuracy improved from 45.11% to 52.93% by introducing regularization and improving the training and validation process.
 
-Dataset
-
-Dataset: FER-2013 (Kaggle)
-
-The FER-2013 dataset contains grayscale facial images categorized into seven emotion classes.
-
-The dataset is organized into training and testing directories, with separate folders for each emotion.
-
-To use the dataset:
-
-Download FER-2013 from Kaggle.
-
-Extract the dataset.
-
-Place the train/ and test/ folders inside the project's data/ directory.
-
-Expected structure:
-
-data/
-├── train/
-│   ├── angry/
-│   ├── disgust/
-│   ├── fear/
-│   ├── happy/
-│   ├── neutral/
-│   ├── sad/
-│   └── surprise/
-└── test/
-    ├── angry/
-    ├── disgust/
-    ├── fear/
-    ├── happy/
-    ├── neutral/
-    ├── sad/
-    └── surprise/
-
-Technologies
-
-Python
-
-TensorFlow / Keras
-
-NumPy
-
-Pillow (PIL)
-
-Convolutional Neural Networks (CNN)
-
 ## Methodology
 
 1. Data Loading and Preprocessing
 
-Loaded facial images from emotion-specific directories.
+    - Loaded facial images from emotion-specific directories.
 
-Converted images to grayscale.
+    - Converted images to grayscale.
 
-Normalized pixel values to the range [0, 1].
+    - Normalized pixel values to the range [0, 1].
 
-Encoded emotion labels into numerical categories.
+    - Encoded emotion labels into numerical categories.
 
-Reshaped images to include a channel dimension for CNN input.
+    - Reshaped images to include a channel dimension for CNN input.
 
 2. Model Development
 
-Developed a CNN architecture using:
+    - Developed a CNN architecture using:
 
-Convolutional layers for image feature extraction.
+    - Convolutional layers for image feature extraction.
 
-Pooling layers for spatial downsampling.
+    - Pooling layers for spatial downsampling.
 
-Dense layers for classification.
+    - Dense layers for classification.
 
-A seven-neuron output layer with softmax activation for multiclass predictions.
+    - A seven-neuron output layer with softmax activation for multiclass predictions.
 
 3. Training and Evaluation
 
-Trained and evaluated multiple CNN configurations to investigate overfitting and model generalization.
+    - Trained and evaluated multiple CNN configurations to investigate overfitting and model generalization.
 
-Training improvements included:
+    - Training improvements included:
 
-Dropout regularization.
+    - Dropout regularization.
 
-Early stopping based on validation loss.
+    - Early stopping based on validation loss.
 
-Stratified training-validation splitting.
+    - Stratified training-validation splitting.
 
 
 Model performance was evaluated using validation accuracy, test accuracy, and test loss.
